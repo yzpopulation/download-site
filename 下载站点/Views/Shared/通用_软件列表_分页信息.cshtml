@@ -1,0 +1,28 @@
+﻿@{
+    dynamic fyxx = ViewData["通用_软件列表_分页信息"];
+    var prepage = fyxx.currentpage == 1 ? "disabled" : null;
+    var nextpage = fyxx.currentpage == fyxx.pages ? "disabled" : null;
+    long first = fyxx.currentpage - 4 >= 0 ? fyxx.currentpage - 4 : 1;
+    long last = fyxx.pages - fyxx.currentpage <= 4 ? fyxx.pages : fyxx.currentpage + 4;
+}
+
+
+<nav>
+    <ul class="pagination justify-content-center">
+        <li class="page-item @prepage">
+            <a class="page-link" href="#" tabindex="-1">Previous</a>
+        </li>
+        @{
+            for (var i = first; i <= last; i++)
+            {
+                var currentdisable = i == fyxx.currentpage ? "disabled" : null;
+                <li class="page-item @currentdisable">
+                    <a class="page-link" href="#">@i</a>
+                </li>
+            }
+        }
+        <li class="page-item @nextpage">
+            <a class="page-link" href="#" tabindex="-1">Next</a>
+        </li>
+    </ul>
+</nav>

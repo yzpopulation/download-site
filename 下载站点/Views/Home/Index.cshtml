@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="row">
+    <div class="col-2 ">
+        <partial name="通用_软件分类列表" view-data="@ViewData"/>
+    </div>
+    <div class="col-7">
+        <partial name="通用_软件列表_导航条" view-data="@ViewData"/>
+        <partial name="通用_软件列表_卡片信息" view-data="@ViewData"/>
+        <hr />
+        <partial name="通用_软件列表_卡片信息" view-data="@ViewData"/>
+        <hr />
+        <partial name="通用_软件列表_分页信息" view-data="@ViewData" />
+    </div>
+    <div class="col-3 ">
+        <partial name="通用_排行榜" view-data="@ViewData"/>
+        <hr />
+        <partial name="通用_排行榜" view-data="@ViewData"/>
+    </div>
+</div>
